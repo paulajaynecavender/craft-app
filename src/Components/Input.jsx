@@ -7,30 +7,41 @@ const Input = ({
   setDescriptionText,
   descriptionText,
   setProjectType,
+  projectType,
+  setProjects,
+  projects,
 }) => {
   const inputTextHandler = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setInputText(e.target.value);
   };
 
   const inputDescriptionHandler = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setDescriptionText(e.target.value);
   };
 
   const typeHandler = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setProjectType(e.target.value);
   };
 
-  // const submitHandler = (e) => {
-  //   e.preventDefault();
-  //   setTodos([
-  //     ...todos,
-  //     { text: inputText, completed: false, id: Math.random() * 1000 },
-  //   ]);
-  //   setInputText("");
-  // };
+  const submitHandler = (e) => {
+    e.preventDefault();
+    setProjects([
+      ...projects,
+      {
+        name: inputText,
+        type: projectType,
+        description: descriptionText,
+        completed: false,
+        id: Math.random() * 1000,
+      },
+    ]);
+    setInputText("");
+    setProjectType("");
+    setDescriptionText("");
+  };
 
   return (
     <div className="input-area">
@@ -62,11 +73,7 @@ const Input = ({
           onChange={inputDescriptionHandler}
           value={descriptionText}
         />
-        <button
-          className="add-button"
-          type="submit"
-          // onClick={submitHandler}
-        >
+        <button className="add-button" type="submit" onClick={submitHandler}>
           <i>
             <FontAwesomeIcon icon={faCirclePlus} />
           </i>

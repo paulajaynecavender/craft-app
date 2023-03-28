@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  font-size: 2rem;
+  font-size: 1.6rem;
 }
 
 header {
@@ -43,6 +43,7 @@ h1 {
   bottom: 1rem;
   font-size: 6rem;
   line-height: 5rem;
+  letter-spacing: 0.2rem;
   text-align: center;
   font-family: "Vibes", cursive;
 }
@@ -51,4 +52,38 @@ h1 {
   background-color: #8940ee;
   width: 75vw;
   margin: 1rem auto;
+}
+
+img {
+  height: 5rem;
+  width: 5rem;
+}
+
+li {
+  list-style: none;
+}
+
+.project-list {
+  width: 100% s;
+}
+
+.project-item {
+  display: flex;
+  margin: 1rem;
+  justify-content: space-between;
+}
+.project-item li {
+  display: flex;
+}
+
+.project-list-container {
+  display: flex;
+  justify-content: center;
+  width: 85vw;
+  margin: 0 auto;
+}
+
+.description-text {
+  width: -moz-max-content;
+  width: max-content;
 }/*# sourceMappingURL=styles.css.map */
