@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+body {
+  font-size: 2rem;
+}
+
+header {
+  background-image: url(../../public/assets/macro-concept-knitting-wool-needles.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 25rem;
+  width: 100%;
+  position: relative;
+}
+
+header::before {
+  position: absolute;
+  content: "";
+  inset: 0;
+  height: 25rem;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3333333333);
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+h1 {
+  color: #fff;
+  position: absolute;
+  bottom: 1rem;
+  font-size: 6rem;
+  line-height: 5rem;
+  text-align: center;
+  font-family: "Vibes", cursive;
+}
+
+.input-area {
+  background-color: #8940ee;
+  width: 75vw;
+  margin: 1rem auto;
+}/*# sourceMappingURL=styles.css.map */

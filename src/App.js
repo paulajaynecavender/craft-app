@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Header from "./Components/Header";
+import Input from "./Components/Input";
 
 function App() {
+  const [inputText, setInputText] = useState("");
+  const [descriptionText, setDescriptionText] = useState("");
+  const [projectType, setProjectType] = useState("select type");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <Header />
       </header>
+      <section>
+        <Input
+          inputText={inputText}
+          setInputText={setInputText}
+          descriptionText={descriptionText}
+          setDescriptionText={setDescriptionText}
+          projectType={projectType}
+          setProjectType={setProjectType}
+        />
+      </section>
     </div>
   );
 }
