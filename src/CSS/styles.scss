@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 html {
   font-size: 62.5%;
@@ -9,6 +10,19 @@ html {
 body {
   font-size: 1.6rem;
 }
+
+@mixin form-box-size {
+  height: 3rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+
+button {
+  padding: 1rem;
+  border: none;
+  font-size: 2.8rem;
+}
+
 header {
   background-image: url(../../public/assets/macro-concept-knitting-wool-needles.jpg);
   background-size: cover;
@@ -42,37 +56,97 @@ h1 {
   font-family: "Vibes", cursive;
 }
 .input-area {
-  background-color: #8940ee;
+  background-color: #b4aca7;
   width: 75vw;
   margin: 1rem auto;
 }
+.input-area-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.project-name-entry,
+.select-project-type,
+.project-description {
+  @include form-box-size;
+}
+
+.add-button {
+  background-color: #b4aca7;
+}
+
 img {
-  height: 5rem;
-  width: 5rem;
+  height: 100%;
+  width: 100%;
 }
 li {
   list-style: none;
 }
-.project-list {
-  width: 100%s;
+
+.project-list-container {
+  display: flex;
+  justify-content: center;
+  width: 36rem;
+  margin: 0 auto;
 }
+// .project-list {
+// }
+// .project {
+// }
 .project-item {
   display: flex;
   margin: 1rem;
   justify-content: space-between;
+  height: 7rem;
+
   // width: 32rem;
   li {
     display: flex;
   }
 }
-.project-list-container {
+.button-group {
   display: flex;
-  justify-content: center;
-  width: 85vw;
-  margin: 0 auto;
+  flex-direction: column;
+  i svg {
+    color: #fff;
+  }
+  .complete-btn {
+    background-color: #7fd1ae;
+  }
+  .delete-btn {
+    background-color: #9a241a;
+  }
 }
-// .name-text {
-// }
-.description-text {
-  width: max-content;
+
+/////// modal ////////
+.modal-open {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80%;
+  width: 90%;
+  font-size: 2rem;
+  background: #b4aca78b;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4rem);
+  -webkit-backdrop-filter: blur(5px);
+  padding: 2rem;
+  transition: 0.5s;
+}
+.modal-hidden {
+  display: none;
+}
+.exit-modal {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 1rem;
+  background-color: transparent;
+}
+.open-modal {
+  background-color: #d37b31;
 }

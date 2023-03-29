@@ -2,7 +2,7 @@ import Project from "./Project";
 
 const ProjectList = ({ projects, setProjects }) => {
   return (
-    <div className="project-list-container">
+    <section className="project-list-container">
       <ul className="project-list">
         {projects.map((project) => (
           <Project
@@ -16,7 +16,7 @@ const ProjectList = ({ projects, setProjects }) => {
           />
         ))}
       </ul>
-    </div>
+    </section>
   );
 };
 

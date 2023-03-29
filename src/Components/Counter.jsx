@@ -1,36 +1,22 @@
-import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPlus,
-  faMinus,
-  faArrowRotateRight,
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
+import CounterModal from "./CounterModal";
 
 const Counter = () => {
-  const [count, setCount] = useState(0);
-
-  let increment = () => setCount(count + 1);
-  let decrement = () => setCount(count - 1);
-  const restart = () => {
-    setCount(0);
+  const openModal = () => {
+    setModal((current) => !current);
   };
-
+  const [modal, setModal] = useState(false);
   return (
-    <div className="counter">
-      <p>Count: {count}</p>
-      <button onClick={increment}>
+    <div className="counter-container">
+      <p>Open counter</p>
+      <button className="open-modal" onClick={openModal}>
         <i>
-          <FontAwesomeIcon icon={faPlus} />
+          <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
         </i>
       </button>
-      <button onClick={decrement}>
-        <i>
-          <FontAwesomeIcon icon={faMinus} />
-        </i>
-      </button>
-      <button onClick={restart}>
-        <FontAwesomeIcon icon={faArrowRotateRight} />
-      </button>
+      <CounterModal modal={modal} setModal={setModal} />
     </div>
   );
 };

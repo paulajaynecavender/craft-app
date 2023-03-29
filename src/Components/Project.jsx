@@ -10,7 +10,6 @@ const Project = ({
   setProjects,
   project,
 }) => {
-  // does not work
   const deleteProject = () => {
     setProjects(projects.filter((el) => el.id !== project.id));
   };
@@ -18,7 +17,9 @@ const Project = ({
     <li className="project">
       <div className="project-item">
         {/* input here: project name, description, type image, counter  */}
-        <img src={`./assets/${type}.jpg`} alt="project type" />
+        <div className="img-container">
+          <img src={`./assets/${type}.jpg`} alt="project type" />
+        </div>
         <div className="project-text">
           <p className="name-text">{name}</p>
           <p className="description-text">{description}</p>
