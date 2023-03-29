@@ -98,7 +98,7 @@ li {
   display: flex;
   margin: 1rem;
   justify-content: space-between;
-  height: 7rem;
+  height: 10.4rem;
 
   // width: 32rem;
   li {
@@ -149,4 +149,8 @@ li {
 }
 .open-modal {
   background-color: #d37b31;
+}
+.completed .project-text {
+  text-decoration: line-through;
+  opacity: 0.5;
 }

@@ -100,7 +100,7 @@ li {
   display: flex;
   margin: 1rem;
   justify-content: space-between;
-  height: 7rem;
+  height: 10.4rem;
 }
 .project-item li {
   display: flex;
@@ -152,4 +152,9 @@ li {
 
 .open-modal {
   background-color: #d37b31;
+}
+
+.completed .project-text {
+  text-decoration: line-through;
+  opacity: 0.5;
 }/*# sourceMappingURL=styles.css.map */

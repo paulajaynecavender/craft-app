@@ -10,6 +10,7 @@ const Input = ({
   projectType,
   setProjects,
   projects,
+  setStatus,
 }) => {
   const inputTextHandler = (e) => {
     // console.log(e.target.value);
@@ -31,16 +32,20 @@ const Input = ({
     setProjects([
       ...projects,
       {
+        id: Math.random() * 1000,
         name: inputText,
         type: projectType,
         description: descriptionText,
         completed: false,
-        id: Math.random() * 1000,
+        count: 0,
       },
     ]);
     setInputText("");
     setProjectType("");
     setDescriptionText("");
+  };
+  const statusHandler = (e) => {
+    setStatus(e.target.value);
   };
 
   return (
@@ -53,14 +58,16 @@ const Input = ({
           name="text"
           onChange={inputTextHandler}
           value={inputText}
+          required
         />
         <div className="select">
           <select
             name="types"
+            required
             className="select-project-type"
             onChange={typeHandler}
           >
-            <option value="select type">select type</option>
+            <option value="">select</option>
             <option value="knitting">knitting</option>
             <option value="crochet">crochet</option>
           </select>
@@ -72,12 +79,22 @@ const Input = ({
           name="text"
           onChange={inputDescriptionHandler}
           value={descriptionText}
+          required
         />
         <button className="add-button" type="submit" onClick={submitHandler}>
           <i>
             <FontAwesomeIcon icon={faCirclePlus} />
           </i>
         </button>
+
+        <div className="filter">
+          <p>Filter:</p>
+          <select name="todos" className="filter-todo" onChange={statusHandler}>
+            <option value="all">All</option>
+            <option value="completed">Completed</option>
+            <option value="uncompleted">Uncompleted</option>
+          </select>
+        </div>
       </form>
     </div>
   );
