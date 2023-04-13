@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlus,
@@ -6,8 +6,25 @@ import {
   faArrowRotateRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-const Counter = () => {
+const Counter = ({ project, setProjects, projects }) => {
   const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const stitchCounter = () => {
+      setProjects(
+        projects.map((item) => {
+          if (item.id === project.id) {
+            return {
+              ...item,
+              count: count,
+            };
+          }
+          return item;
+        })
+      );
+    };
+    stitchCounter();
+  }, [count, project.id]);
 
   let increment = () => {
     setCount(count + 1);
@@ -20,7 +37,12 @@ const Counter = () => {
   };
   return (
     <>
-      <p>Count: {count}</p>
+      {/* {projects.map((item) => {
+        if (item.id === project.id) {
+        }
+        return <p>{project.count}</p>;
+      })} */}
+      <p>{project.count}</p>
       <button onClick={increment}>
         <i>
           <FontAwesomeIcon icon={faPlus} />

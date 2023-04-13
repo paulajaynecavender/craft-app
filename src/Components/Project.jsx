@@ -42,6 +42,7 @@ const Project = ({
             description={description}
             name={name}
             type={type}
+            projects={projects}
           />
         </div>
         <div className="button-group">

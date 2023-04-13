@@ -3,7 +3,14 @@ import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import Modal from "./Modal";
 
-const DetailBtn = ({ description, name, type }) => {
+const DetailBtn = ({
+  description,
+  name,
+  type,
+  project,
+  setProjects,
+  projects,
+}) => {
   const openModal = () => {
     setModal((current) => !current);
   };
@@ -23,6 +30,9 @@ const DetailBtn = ({ description, name, type }) => {
         description={description}
         name={name}
         type={type}
+        setProjects={setProjects}
+        project={project}
+        projects={projects}
       />
     </div>
   );
