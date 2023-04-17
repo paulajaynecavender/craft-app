@@ -36,21 +36,19 @@ function App() {
     };
     filterHandler();
     const saveLocalProjects = () => {
-      localStorage.setItem("projects", JSON.stringify(projects));
+      console.log("hello", projects);
+      if (projects.length > 0) {
+        localStorage.setItem("projects", JSON.stringify(projects));
+      }
     };
     saveLocalProjects();
   }, [projects, status]);
 
   const getLocalProjects = () => {
-    if (localStorage.getItem("projects") === null) {
-      localStorage.setItem("projects", JSON.stringify([]));
-    } else {
-      let projectLocal = JSON.parse(localStorage.getItem("projects"));
-      if (projectLocal.length === 0) {
-        return null;
-      }
-      setProjects(projectLocal);
-    }
+    console.log(localStorage.getItem("projects"));
+    const dataFromDisk = JSON.parse(localStorage.getItem("projects"));
+
+    setProjects(dataFromDisk ? dataFromDisk : []);
   };
 
   return (
