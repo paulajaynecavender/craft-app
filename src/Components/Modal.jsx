@@ -11,6 +11,7 @@ const Modal = ({
   project,
   setProjects,
   projects,
+  updateCount,
 }) => {
   const closeModal = () => {
     setModal(false);
@@ -24,14 +25,15 @@ const Modal = ({
         </i>
       </button>
       <div className="description-text">
-        <p>{name}</p>
-        <p>{type}</p>
-        <p>{description}</p>
+        <p>Name: {name}</p>
+        <p>Type: {type}</p>
+        <p>Description: {description}</p>
       </div>
       <Counter
         setProjects={setProjects}
         project={project}
         projects={projects}
+        updateCount={updateCount}
       />
     </div>
   );

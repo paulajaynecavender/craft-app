@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Header from "./Components/Header";
 import Input from "./Components/Input";
 // import Project from "./Components/Project";
@@ -36,7 +36,6 @@ function App() {
     };
     filterHandler();
     const saveLocalProjects = () => {
-      console.log("hello", projects);
       if (projects.length > 0) {
         localStorage.setItem("projects", JSON.stringify(projects));
       }
@@ -45,11 +44,28 @@ function App() {
   }, [projects, status]);
 
   const getLocalProjects = () => {
-    console.log(localStorage.getItem("projects"));
     const dataFromDisk = JSON.parse(localStorage.getItem("projects"));
 
     setProjects(dataFromDisk ? dataFromDisk : []);
   };
+
+  const updateCount = useCallback(
+    (countId, newCount) => {
+      console.log("countId:", countId, "newCount:", newCount);
+      setProjects(
+        projects.map((item) => {
+          if (item.id === countId) {
+            return {
+              ...item,
+              count: newCount,
+            };
+          }
+          return item;
+        })
+      );
+    },
+    [projects]
+  );
 
   return (
     <div className="App">
@@ -73,6 +89,7 @@ function App() {
         projects={projects}
         setProjects={setProjects}
         filteredProjects={filteredProjects}
+        updateCount={updateCount}
       />
     </div>
   );

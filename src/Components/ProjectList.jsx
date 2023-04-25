@@ -1,6 +1,11 @@
 import Project from "./Project";
 
-const ProjectList = ({ projects, setProjects, filteredProjects }) => {
+const ProjectList = ({
+  projects,
+  setProjects,
+  filteredProjects,
+  updateCount,
+}) => {
   return (
     <section className="project-list-container">
       <ul className="project-list">
@@ -13,6 +18,7 @@ const ProjectList = ({ projects, setProjects, filteredProjects }) => {
             key={project.id}
             description={project.description}
             project={project}
+            updateCount={updateCount}
           />
         ))}
       </ul>

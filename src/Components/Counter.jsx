@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlus,
@@ -6,34 +6,24 @@ import {
   faArrowRotateRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-const Counter = ({ project, setProjects, projects }) => {
+const Counter = ({ project, setProjects, projects, updateCount }) => {
   const [count, setCount] = useState(project.count);
-  const stitchCounterCallback = useCallback(() => {
-    setProjects(
-      projects.map((item) => {
-        if (item.id === project.id) {
-          return {
-            ...item,
-            count: count,
-          };
-        }
-        return item;
-      })
-    );
-  }, [projects, count, project.id, setProjects]);
 
-  useEffect(() => {
-    stitchCounterCallback();
-  }, [stitchCounterCallback]);
+  // useEffect(() => {
+  //   updateCount(project.id, count);
+  // }, [count, project.id, updateCount]);
 
   let increment = () => {
     setCount(count + 1);
+    updateCount(project.id, count + 1);
   };
   let decrement = () => {
     setCount(count - 1);
+    updateCount(project.id, count - 1);
   };
   const restart = () => {
     setCount(0);
+    updateCount(project.id, 0);
   };
   return (
     <>

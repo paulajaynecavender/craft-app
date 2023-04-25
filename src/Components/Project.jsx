@@ -1,6 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan, faCheck } from "@fortawesome/free-solid-svg-icons";
-import DetailBtn from "./DetailBtn";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
+import Modal from "./Modal";
 
 const Project = ({
   name,
@@ -9,6 +11,7 @@ const Project = ({
   projects,
   setProjects,
   project,
+  updateCount,
 }) => {
   const deleteProject = () => {
     setProjects(projects.filter((el) => el.id !== project.id));
@@ -26,25 +29,36 @@ const Project = ({
       })
     );
   };
+  const openModal = () => {
+    setModal((current) => !current);
+  };
+  const [modal, setModal] = useState(false);
   return (
     <li className="project">
       <div className={`project-item ${project.completed ? "completed" : ""}`}>
         <div className="img-container">
           <img src={`./assets/${type}.jpg`} alt="project type" />
+          <button className="expand" onClick={openModal}>
+            <i>
+              <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+            </i>
+          </button>
         </div>
+        <Modal
+          modal={modal}
+          setModal={setModal}
+          description={description}
+          name={name}
+          type={type}
+          setProjects={setProjects}
+          project={project}
+          projects={projects}
+          updateCount={updateCount}
+        />
         <div className="project-text">
           <p className="name-text">{name}</p>
         </div>
-        <div className="counter-container">
-          <DetailBtn
-            setProjects={setProjects}
-            project={project}
-            description={description}
-            name={name}
-            type={type}
-            projects={projects}
-          />
-        </div>
+
         <div className="button-group">
           <button className="complete-btn" onClick={completeProject}>
             <i>
