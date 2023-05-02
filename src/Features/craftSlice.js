@@ -18,10 +18,17 @@ export const craftSlice = createSlice({
       };
       state.push(newProject);
     },
+    completeToggle: (state, action) => {
+      const indexOf = state.findIndex((project) => {
+        return project.id === action.payload;
+      });
+      console.log("index=", indexOf);
+      // state.completed = !state.completed;
+    },
   },
 });
 
-export const { addProject } = craftSlice.actions;
+export const { addProject, completeToggle } = craftSlice.actions;
 
 export const selectNewProject = (state) => state.craft;
 
