@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { addProject } from "../Features/craftSlice";
 import { useState } from "react";
 
-const Input = ({ setProjects, projects, setStatus }) => {
+const Input = ({ setStatus }) => {
   const dispatch = useDispatch();
   const [inputText, setInputText] = useState("");
   const [descriptionText, setDescriptionText] = useState("");
@@ -21,24 +21,6 @@ const Input = ({ setProjects, projects, setStatus }) => {
   const typeHandler = (e) => {
     setProjectType(e.target.value);
   };
-
-  // const submitHandler = (e) => {
-  //   e.preventDefault();
-  //   setProjects([
-  //     ...projects,
-  //     {
-  //       id: Math.random() * 1000,
-  //       name: inputText,
-  //       type: projectType,
-  //       description: descriptionText,
-  //       completed: false,
-  //       count: 0,
-  //     },
-  //   ]);
-  //   setInputText("");
-  //   setProjectType("");
-  //   setDescriptionText("");
-  // };
 
   const onSubmit = (e) => {
     e.preventDefault();

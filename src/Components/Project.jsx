@@ -44,17 +44,7 @@ const Project = ({
             </i>
           </button>
         </div>
-        <Modal
-          modal={modal}
-          setModal={setModal}
-          description={description}
-          name={name}
-          type={type}
-          setProjects={setProjects}
-          project={project}
-          projects={projects}
-          updateCount={updateCount}
-        />
+        {/* <Modal /> */}
         <div className="project-text">
           <p className="name-text">{name}</p>
         </div>

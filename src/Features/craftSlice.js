@@ -33,4 +33,6 @@ export const craftSlice = createSlice({
 
 export const { addProject } = craftSlice.actions;
 
+export const selectNewProject = (state) => state.craft;
+
 export default craftSlice.reducer;
