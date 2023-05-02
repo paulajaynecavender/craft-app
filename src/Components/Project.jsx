@@ -3,42 +3,39 @@ import { faTrashCan, faCheck } from "@fortawesome/free-solid-svg-icons";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import Modal from "./Modal";
+import { useSelector } from "react-redux";
+import { selectNewProject } from "../Features/craftSlice";
 
-const Project = ({
-  name,
-  type,
-  description,
-  projects,
-  setProjects,
-  project,
-  updateCount,
-}) => {
-  const deleteProject = () => {
-    setProjects(projects.filter((el) => el.id !== project.id));
-  };
-  const completeProject = () => {
-    setProjects(
-      projects.map((item) => {
-        if (item.id === project.id) {
-          return {
-            ...item,
-            completed: !item.completed,
-          };
-        }
-        return item;
-      })
-    );
-  };
-  const openModal = () => {
-    setModal((current) => !current);
-  };
-  const [modal, setModal] = useState(false);
+const Project = ({ name, type, description, completed, modal, counter }) => {
+  // selectors
+  const projects = useSelector(selectNewProject);
+
+  // const deleteProject = () => {
+  //   setProjects(projects.filter((el) => el.id !== project.id));
+  // };
+  // const completeProject = () => {
+  //   setProjects(
+  //     projects.map((item) => {
+  //       if (item.id === project.id) {
+  //         return {
+  //           ...item,
+  //           completed: !item.completed,
+  //         };
+  //       }
+  //       return item;
+  //     })
+  //   );
+  // };
+  // const openModal = () => {
+  //   setModal((current) => !current);
+  // };
+  // const [modal, setModal] = useState(false);
   return (
     <li className="project">
-      <div className={`project-item ${project.completed ? "completed" : ""}`}>
+      <div className={`project-item ${completed ? "completed" : ""}`}>
         <div className="img-container">
           <img src={`./assets/${type}.jpg`} alt="project type" />
-          <button className="expand" onClick={openModal}>
+          <button className="expand">
             <i>
               <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
             </i>
@@ -50,12 +47,12 @@ const Project = ({
         </div>
 
         <div className="button-group">
-          <button className="complete-btn" onClick={completeProject}>
+          <button className="complete-btn">
             <i>
               <FontAwesomeIcon icon={faCheck} />
             </i>
           </button>
-          <button className="delete-btn" onClick={deleteProject}>
+          <button className="delete-btn">
             <i>
               <FontAwesomeIcon icon={faTrashCan} />
             </i>

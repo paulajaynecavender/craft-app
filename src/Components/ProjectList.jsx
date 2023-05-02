@@ -9,8 +9,17 @@ const ProjectList = () => {
   return (
     <section className="project-list-container">
       <ul className="project-list">
-        {projects && projects.map((project) => <p>{project.name}</p>)}
-        {/* <Project /> */}
+        {projects.map((project) => (
+          <Project
+            key={project.id}
+            name={project.name}
+            type={project.type}
+            description={project.description}
+            completed={project.completed}
+            modal={project.modal}
+            counter={project.counter}
+          />
+        ))}
       </ul>
     </section>
   );
