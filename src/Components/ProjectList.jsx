@@ -17,7 +17,7 @@ const ProjectList = () => {
             type={project.type}
             description={project.description}
             completed={project.completed}
-            modal={project.modal}
+            // modal={project.modal}
             counter={project.counter}
             id={project.id}
           />

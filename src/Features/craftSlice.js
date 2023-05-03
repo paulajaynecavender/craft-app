@@ -13,7 +13,7 @@ export const craftSlice = createSlice({
         type: action.payload.type,
         description: action.payload.description,
         completed: false,
-        modal: false,
+        // modal: false,
         counter: 0,
       };
       state.push(newProject);

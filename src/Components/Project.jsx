@@ -3,60 +3,35 @@ import { faTrashCan, faCheck } from "@fortawesome/free-solid-svg-icons";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import Modal from "./Modal";
-import { useSelector } from "react-redux";
-import {
-  completeToggle,
-  selectNewProject,
-  deleteProject,
-} from "../Features/craftSlice";
+import { completeToggle, deleteProject } from "../Features/craftSlice";
 import { useDispatch } from "react-redux";
 
-const Project = ({
-  id,
-  name,
-  type,
-  description,
-  completed,
-  modal,
-  counter,
-}) => {
-  // selectors
-  const projects = useSelector(selectNewProject);
-
+const Project = ({ id, name, type, description, completed, counter }) => {
   const dispatch = useDispatch();
 
-  // const deleteProject = () => {
-  //   setProjects(projects.filter((el) => el.id !== project.id));
-  // };
-  // const completeProject = () => {
-  //   setProjects(
-  //     projects.map((item) => {
-  //       if (item.id === project.id) {
-  //         return {
-  //           ...item,
-  //           completed: !item.completed,
-  //         };
-  //       }
-  //       return item;
-  //     })
-  //   );
-  // };
-  // const openModal = () => {
-  //   setModal((current) => !current);
-  // };
-  // const [modal, setModal] = useState(false);
+  const [modal, setModal] = useState(false);
+  const openModal = () => {
+    setModal((current) => !current);
+  };
+
   return (
     <li className="project">
       <div className={`project-item ${completed ? "completed" : ""}`}>
         <div className="img-container">
           <img src={`./assets/${type}.jpg`} alt="project type" />
-          <button className="expand">
+          <button className="expand" onClick={openModal}>
             <i>
               <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
             </i>
           </button>
         </div>
-        {/* <Modal /> */}
+        <Modal
+          setModal={setModal}
+          modal={modal}
+          name={name}
+          type={type}
+          description={description}
+        />
         <div className="project-text">
           <p className="name-text">{name}</p>
         </div>
