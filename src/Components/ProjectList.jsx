@@ -19,6 +19,7 @@ const ProjectList = () => {
             completed={project.completed}
             modal={project.modal}
             counter={project.counter}
+            id={project.id}
           />
         ))}
       </ul>

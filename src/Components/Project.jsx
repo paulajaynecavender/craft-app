@@ -4,17 +4,21 @@ import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import Modal from "./Modal";
 import { useSelector } from "react-redux";
-import { completeToggle, selectNewProject } from "../Features/craftSlice";
+import {
+  completeToggle,
+  selectNewProject,
+  deleteProject,
+} from "../Features/craftSlice";
 import { useDispatch } from "react-redux";
 
 const Project = ({
+  id,
   name,
   type,
   description,
   completed,
   modal,
   counter,
-  project,
 }) => {
   // selectors
   const projects = useSelector(selectNewProject);
@@ -58,17 +62,22 @@ const Project = ({
         </div>
 
         <div className="button-group">
-          <button className="complete-btn">
+          <button
+            className="complete-btn"
+            onClick={() => {
+              dispatch(completeToggle(id));
+            }}
+          >
             <i>
-              <FontAwesomeIcon
-                icon={faCheck}
-                onClick={() => {
-                  dispatch(completeToggle(project.id));
-                }}
-              />
+              <FontAwesomeIcon icon={faCheck} />
             </i>
           </button>
-          <button className="delete-btn">
+          <button
+            className="delete-btn"
+            onClick={() => {
+              dispatch(deleteProject(id));
+            }}
+          >
             <i>
               <FontAwesomeIcon icon={faTrashCan} />
             </i>
