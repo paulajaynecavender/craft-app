@@ -1,6 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { store, retrieve } from "../App/storage";
 
-const initialState = [];
+const retrStore = retrieve("store");
+
+const initialState = retrStore || [];
 
 export const craftSlice = createSlice({
   name: "craft",
@@ -16,39 +19,42 @@ export const craftSlice = createSlice({
         counter: 0,
       };
       state.push(newProject);
+      store("store", state);
     },
     completeToggle: (state, action) => {
       const indexOf = state.findIndex((item) => {
         return item.id === action.payload;
       });
       state[indexOf].completed = !state[indexOf].completed;
+      store("store", state);
     },
     deleteProject: (state, action) => {
       const indexOf = state.findIndex((item) => {
         return item.id === action.payload;
       });
       state.splice(indexOf, 1);
+      store("store", state);
     },
     increment: (state, action) => {
       const indexOf = state.findIndex((item) => {
         return item.id === action.payload;
       });
-      console.log(indexOf, state[indexOf].counter);
       state[indexOf].counter += 1;
+      store("store", state);
     },
     decrement: (state, action) => {
       const indexOf = state.findIndex((item) => {
         return item.id === action.payload;
       });
       state[indexOf].counter -= 1;
-      console.log(indexOf, state[indexOf].counter);
+      store("store", state);
     },
     restart: (state, action) => {
       const indexOf = state.findIndex((item) => {
         return item.id === action.payload;
       });
       state[indexOf].counter = 0;
-      console.log(indexOf, state[indexOf].counter);
+      store("store", state);
     },
   },
 });
@@ -63,7 +69,5 @@ export const {
 } = craftSlice.actions;
 
 export const selectProject = (state) => state.craft;
-export const counter = (state) => state.craft.counter;
-// export const selectProjectCounterById =
 
 export default craftSlice.reducer;

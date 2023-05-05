@@ -1,4 +1,4 @@
-// import { useState, useEffect, useCallback } from "react";
+// import { useState, useEffect } from "react";
 import Header from "./Components/Header";
 import Input from "./Components/Input";
 import ProjectList from "./Components/ProjectList";
@@ -6,7 +6,6 @@ import ProjectList from "./Components/ProjectList";
 // import { selectProject } from "./Features/craftSlice";
 
 function App() {
-  // const [projects, setProjects] = useState([]);
   // const [filteredProjects, setfilteredProjects] = useState([]);
 
   // selectors
@@ -43,16 +42,6 @@ function App() {
   //   };
   //   saveLocalProjects();
   // }, [projects, status]);
-
-  /////////////   LOCAL DISK - FIX LATER - DO NOT DELETE //////////////
-
-  // const getLocalProjects = () => {
-  //   const dataFromDisk = JSON.parse(localStorage.getItem("projects"));
-
-  //   setProjects(dataFromDisk ? dataFromDisk : []);
-  // };
-
-  /////////////////////////////////////////////////////////////////////////
 
   return (
     <div className="App">

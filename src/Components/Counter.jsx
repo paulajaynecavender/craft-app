@@ -4,18 +4,11 @@ import {
   faMinus,
   faArrowRotateRight,
 } from "@fortawesome/free-solid-svg-icons";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  increment,
-  decrement,
-  counter,
-  restart,
-  selectProjectCounterById,
-} from "../Features/craftSlice";
+import { useDispatch } from "react-redux";
+import { increment, decrement, restart } from "../Features/craftSlice";
 
 const Counter = ({ id, counter }) => {
   const dispatch = useDispatch();
-  // const count = useSelector();
 
   return (
     <>
