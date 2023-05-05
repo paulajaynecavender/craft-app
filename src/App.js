@@ -1,16 +1,16 @@
-import { useState, useEffect, useCallback } from "react";
+// import { useState, useEffect, useCallback } from "react";
 import Header from "./Components/Header";
 import Input from "./Components/Input";
 import ProjectList from "./Components/ProjectList";
-import { useSelector } from "react-redux";
-import { selectNewProject } from "./Features/craftSlice";
+// import { useSelector } from "react-redux";
+// import { selectProject } from "./Features/craftSlice";
 
 function App() {
   // const [projects, setProjects] = useState([]);
   // const [filteredProjects, setfilteredProjects] = useState([]);
 
   // selectors
-  const projects = useSelector(selectNewProject);
+  // const projects = useSelector(selectProject);
 
   // useEffect(() => {
   //   getLocalProjects();
@@ -53,24 +53,6 @@ function App() {
   // };
 
   /////////////////////////////////////////////////////////////////////////
-
-  // const updateCount = useCallback(
-  //   (countId, newCount) => {
-  //     console.log("countId:", countId, "newCount:", newCount);
-  //     setProjects(
-  //       projects.map((item) => {
-  //         if (item.id === countId) {
-  //           return {
-  //             ...item,
-  //             count: newCount,
-  //           };
-  //         }
-  //         return item;
-  //       })
-  //     );
-  //   },
-  //   [projects]
-  // );
 
   return (
     <div className="App">

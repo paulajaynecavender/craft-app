@@ -1,10 +1,10 @@
 import Project from "./Project";
 import { useSelector } from "react-redux";
-import { selectNewProject } from "../Features/craftSlice";
+import { selectProject } from "../Features/craftSlice";
 
 const ProjectList = () => {
   // selectors
-  const projects = useSelector(selectNewProject);
+  const projects = useSelector(selectProject);
 
   return (
     <section className="project-list-container">
@@ -17,7 +17,6 @@ const ProjectList = () => {
             type={project.type}
             description={project.description}
             completed={project.completed}
-            // modal={project.modal}
             counter={project.counter}
             id={project.id}
           />

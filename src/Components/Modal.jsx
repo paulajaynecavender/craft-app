@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import Counter from "./Counter";
 
-const Modal = ({ id, name, description, type, setModal, modal }) => {
+const Modal = ({ id, name, description, type, setModal, modal, counter }) => {
   const closeModal = () => {
     setModal(false);
   };
@@ -19,7 +19,7 @@ const Modal = ({ id, name, description, type, setModal, modal }) => {
         <p>Type: {type}</p>
         <p>Description: {description}</p>
       </div>
-      <Counter id={id} />
+      <Counter id={id} counter={counter} />
     </div>
   );
 };

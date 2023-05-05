@@ -13,7 +13,6 @@ export const craftSlice = createSlice({
         type: action.payload.type,
         description: action.payload.description,
         completed: false,
-        // modal: false,
         counter: 0,
       };
       state.push(newProject);
@@ -58,14 +57,13 @@ export const {
   addProject,
   completeToggle,
   deleteProject,
-  modalToggle,
   increment,
   decrement,
   restart,
 } = craftSlice.actions;
 
-export const selectNewProject = (state) => state.craft;
+export const selectProject = (state) => state.craft;
 export const counter = (state) => state.craft.counter;
-// export const selectModalToggle = (state) => state.craft[0].modal;
+// export const selectProjectCounterById =
 
 export default craftSlice.reducer;

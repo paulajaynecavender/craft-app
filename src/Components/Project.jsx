@@ -32,6 +32,7 @@ const Project = ({ id, name, type, description, completed, counter }) => {
           type={type}
           description={description}
           id={id}
+          counter={counter}
         />
         <div className="project-text">
           <p className="name-text">{name}</p>
