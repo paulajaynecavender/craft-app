@@ -1,14 +1,12 @@
 import { useState, useEffect, useCallback } from "react";
 import Header from "./Components/Header";
 import Input from "./Components/Input";
-// import Project from "./Components/Project";
 import ProjectList from "./Components/ProjectList";
 import { useSelector } from "react-redux";
 import { selectNewProject } from "./Features/craftSlice";
 
 function App() {
   // const [projects, setProjects] = useState([]);
-  // const [status, setStatus] = useState("all");
   // const [filteredProjects, setfilteredProjects] = useState([]);
 
   // selectors

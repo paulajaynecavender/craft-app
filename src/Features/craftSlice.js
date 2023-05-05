@@ -30,19 +30,42 @@ export const craftSlice = createSlice({
       });
       state.splice(indexOf, 1);
     },
-    // modalToggle: (state, action) => {
-    //   const indexOf = state.findIndex((item) => {
-    //     return item.id === action.payload;
-    //   });
-    //   state[indexOf].modal = !state[indexOf].modal;
-    // },
+    increment: (state, action) => {
+      const indexOf = state.findIndex((item) => {
+        return item.id === action.payload;
+      });
+      console.log(indexOf, state[indexOf].counter);
+      state[indexOf].counter += 1;
+    },
+    decrement: (state, action) => {
+      const indexOf = state.findIndex((item) => {
+        return item.id === action.payload;
+      });
+      state[indexOf].counter -= 1;
+      console.log(indexOf, state[indexOf].counter);
+    },
+    restart: (state, action) => {
+      const indexOf = state.findIndex((item) => {
+        return item.id === action.payload;
+      });
+      state[indexOf].counter = 0;
+      console.log(indexOf, state[indexOf].counter);
+    },
   },
 });
 
-export const { addProject, completeToggle, deleteProject, modalToggle } =
-  craftSlice.actions;
+export const {
+  addProject,
+  completeToggle,
+  deleteProject,
+  modalToggle,
+  increment,
+  decrement,
+  restart,
+} = craftSlice.actions;
 
 export const selectNewProject = (state) => state.craft;
+export const counter = (state) => state.craft.counter;
 // export const selectModalToggle = (state) => state.craft[0].modal;
 
 export default craftSlice.reducer;

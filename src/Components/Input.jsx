@@ -4,11 +4,12 @@ import { useDispatch } from "react-redux";
 import { addProject } from "../Features/craftSlice";
 import { useState } from "react";
 
-const Input = ({ setStatus }) => {
+const Input = () => {
   const dispatch = useDispatch();
   const [inputText, setInputText] = useState("");
   const [descriptionText, setDescriptionText] = useState("");
   const [projectType, setProjectType] = useState("select type");
+  // const [status, setStatus] = useState("all");
 
   const inputTextHandler = (e) => {
     setInputText(e.target.value);
@@ -33,9 +34,9 @@ const Input = ({ setStatus }) => {
     );
   };
 
-  const statusHandler = (e) => {
-    setStatus(e.target.value);
-  };
+  // const statusHandler = (e) => {
+  //   setStatus(e.target.value);
+  // };
 
   return (
     <div className="input-area">
@@ -78,7 +79,11 @@ const Input = ({ setStatus }) => {
 
         <div className="filter">
           <p>Filter:</p>
-          <select name="todos" className="filter-todo" onChange={statusHandler}>
+          <select
+            name="todos"
+            className="filter-todo"
+            // onChange={statusHandler}
+          >
             <option value="all">All</option>
             <option value="completed">Completed</option>
             <option value="uncompleted">Uncompleted</option>
