@@ -1,7 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
-import { addProject } from "../Features/craftSlice";
+import {
+  addProject,
+  filteredProjects,
+  filteredStatus,
+} from "../Features/craftSlice";
 import { useState } from "react";
 
 const Input = () => {
@@ -82,7 +86,10 @@ const Input = () => {
           <select
             name="todos"
             className="filter-todo"
-            // onChange={statusHandler}
+            /////// dispatch to store the value of the select option selected ///////
+            onChange={(e) => {
+              dispatch(filteredStatus(e.target.value));
+            }}
           >
             <option value="all">All</option>
             <option value="completed">Completed</option>

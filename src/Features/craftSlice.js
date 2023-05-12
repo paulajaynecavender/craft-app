@@ -3,7 +3,10 @@ import { store, retrieve } from "../App/storage";
 
 const retrStore = retrieve("store");
 
-const initialState = retrStore || [];
+const initialState = retrStore || {
+  projects: [],
+  filteredStatus: "",
+};
 
 export const craftSlice = createSlice({
   name: "craft",
@@ -18,42 +21,46 @@ export const craftSlice = createSlice({
         completed: false,
         counter: 0,
       };
-      state.push(newProject);
+      state.projects.push(newProject);
       store("store", state);
     },
     completeToggle: (state, action) => {
-      const indexOf = state.findIndex((item) => {
+      const indexOf = state.projects.findIndex((item) => {
         return item.id === action.payload;
       });
-      state[indexOf].completed = !state[indexOf].completed;
+      state.projects[indexOf].completed = !state.projects[indexOf].completed;
       store("store", state);
     },
     deleteProject: (state, action) => {
-      const indexOf = state.findIndex((item) => {
+      const indexOf = state.projects.findIndex((item) => {
         return item.id === action.payload;
       });
-      state.splice(indexOf, 1);
+      state.projects.splice(indexOf, 1);
       store("store", state);
     },
     increment: (state, action) => {
-      const indexOf = state.findIndex((item) => {
+      const indexOf = state.projects.findIndex((item) => {
         return item.id === action.payload;
       });
-      state[indexOf].counter += 1;
+      state.projects[indexOf].counter += 1;
       store("store", state);
     },
     decrement: (state, action) => {
-      const indexOf = state.findIndex((item) => {
+      const indexOf = state.projects.findIndex((item) => {
         return item.id === action.payload;
       });
-      state[indexOf].counter -= 1;
+      state.projects[indexOf].counter -= 1;
       store("store", state);
     },
     restart: (state, action) => {
-      const indexOf = state.findIndex((item) => {
+      const indexOf = state.projects.findIndex((item) => {
         return item.id === action.payload;
       });
-      state[indexOf].counter = 0;
+      state.projects[indexOf].counter = 0;
+      store("store", state);
+    },
+    filteredStatus: (state, action) => {
+      state.filteredStatus = action.payload;
       store("store", state);
     },
   },
@@ -66,8 +73,10 @@ export const {
   increment,
   decrement,
   restart,
+  filteredStatus,
 } = craftSlice.actions;
 
-export const selectProject = (state) => state.craft;
+export const selectProject = (state) => state.craft.projects;
+export const selectFilter = (state) => state.craft.filteredStatus;
 
 export default craftSlice.reducer;

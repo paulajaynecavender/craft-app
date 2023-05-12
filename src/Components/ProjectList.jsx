@@ -1,15 +1,10 @@
 import Project from "./Project";
-import { useSelector } from "react-redux";
-import { selectProject } from "../Features/craftSlice";
 
-const ProjectList = () => {
-  // selectors
-  const projects = useSelector(selectProject);
-
+const ProjectList = ({ filteredState }) => {
   return (
     <section className="project-list-container">
       <ul className="project-list">
-        {projects.map((project) => (
+        {filteredState.map((project) => (
           <Project
             project={project}
             key={project.id}
