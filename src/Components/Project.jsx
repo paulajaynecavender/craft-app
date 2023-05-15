@@ -19,6 +19,9 @@ const Project = ({ id, name, type, description, completed, counter }) => {
       <div className={`project-item ${completed ? "completed" : ""}`}>
         <div className="img-container">
           <img src={`./assets/${type}.jpg`} alt="project type" />
+          <svg width="150" height="25">
+            <path d="M 0 25 Q 75 -10 150 25" fill="#fff" />
+          </svg>
           <button className="expand" onClick={openModal}>
             <i>
               <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
@@ -35,6 +38,8 @@ const Project = ({ id, name, type, description, completed, counter }) => {
           counter={counter}
         />
         <div className="project-text">
+          {/* <img src="./assets/blob.svg" alt="blob" /> */}
+
           <p className="name-text">{name}</p>
         </div>
 
@@ -48,6 +53,7 @@ const Project = ({ id, name, type, description, completed, counter }) => {
             <i>
               <FontAwesomeIcon icon={faCheck} />
             </i>
+            <p className="btn-action">complete</p>
           </button>
           <button
             className="delete-btn"
@@ -58,6 +64,7 @@ const Project = ({ id, name, type, description, completed, counter }) => {
             <i>
               <FontAwesomeIcon icon={faTrashCan} />
             </i>
+            <p className="btn-action">delete</p>
           </button>
         </div>
       </div>

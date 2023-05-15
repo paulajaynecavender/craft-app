@@ -16,14 +16,10 @@ body {
 img {
   height: 100%;
   position: relative;
-  border-radius: 1.6rem;
 }
 
 button {
-  padding: 0.8rem;
   border: none;
-  font-size: 1.5rem;
-  border-radius: 1.6rem;
   cursor: pointer;
 }
 
@@ -32,7 +28,7 @@ header {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 25rem;
+  height: 15rem;
   width: 100%;
   position: relative;
 }
@@ -41,7 +37,7 @@ header::before {
   position: absolute;
   content: "";
   inset: 0;
-  height: 25rem;
+  height: 15rem;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.3333333333);
 }
@@ -109,36 +105,97 @@ li {
   list-style: none;
 }
 
-.project-list-container {
+.project-list {
+  width: 90%;
   display: flex;
-  justify-content: center;
-  width: 34rem;
+  flex-wrap: wrap;
   margin: 0 auto;
+  justify-content: space-between;
 }
 
-.project-list {
-  width: 100%;
+.project {
+  width: 15rem;
 }
 
 .project-item {
   display: flex;
-  margin-bottom: 1rem;
+  flex-direction: column;
   justify-content: space-between;
-  height: 7rem;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 1.6rem;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  height: 20rem;
+  position: relative;
+  box-shadow: -2px 0px 47px 4px rgba(0, 0, 0, 0.18);
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
 }
-.project-item li {
-  display: flex;
+
+.img-container {
+  position: relative;
+  width: 100%;
+  height: 60%;
+}
+.img-container img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  background-color: transparent;
+}
+.img-container svg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.project-text {
+  text-align: left;
+  width: 100%;
+  border-radius: 8rem;
+  background-color: rgba(255, 255, 255, 0);
+  height: 5rem;
+}
+.project-text img {
+  width: 115%;
+  left: -1rem;
+  bottom: -15rem;
+}
+
+.name-text {
+  padding: 1rem;
+}
+
+.completed .project-text {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.expand {
+  background-color: rgba(255, 255, 255, 0);
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+}
+.expand i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  visibility: hidden;
+}
+
+.expand:hover {
+  background-color: rgba(255, 255, 255, 0.4666666667);
+}
+
+.expand:hover i {
+  visibility: visible;
 }
 
 .button-group {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
 }
 .button-group i svg {
@@ -149,6 +206,27 @@ li {
 }
 .button-group .delete-btn {
   background-color: #9a241a;
+}
+.button-group button {
+  width: 25%;
+  height: 3rem;
+}
+
+.btn-action {
+  visibility: hidden;
+  font-size: 1.7rem;
+}
+
+.complete-btn:hover .btn-action {
+  visibility: visible;
+  transform: translateX(100%);
+  transition: ease 1s;
+}
+
+.delete-btn:hover .btn-action {
+  visibility: visible;
+  transform: translateX(-100%);
+  transition: ease 1s;
 }
 
 .complete-btn:hover,
@@ -162,34 +240,6 @@ li {
 
 .delete-btn:hover i svg {
   color: #9a241a;
-}
-
-.img-container {
-  position: relative;
-}
-
-.expand {
-  background-color: rgba(255, 255, 255, 0);
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-}
-
-.expand:hover {
-  background-color: rgba(255, 255, 255, 0.4666666667);
-}
-
-.project-text {
-  text-align: left;
-  width: 100%;
-  margin-left: 1rem;
-}
-
-.completed .project-text {
-  text-decoration: line-through;
-  opacity: 0.5;
 }
 
 .modal-open {

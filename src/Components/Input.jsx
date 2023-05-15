@@ -1,11 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
-import {
-  addProject,
-  filteredProjects,
-  filteredStatus,
-} from "../Features/craftSlice";
+import { addProject, filteredStatus } from "../Features/craftSlice";
 import { useState } from "react";
 
 const Input = () => {
