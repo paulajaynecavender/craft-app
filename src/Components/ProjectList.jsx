@@ -1,24 +1,19 @@
 import Project from "./Project";
 
-const ProjectList = ({
-  projects,
-  setProjects,
-  filteredProjects,
-  updateCount,
-}) => {
+const ProjectList = ({ filteredState }) => {
   return (
     <section className="project-list-container">
       <ul className="project-list">
-        {filteredProjects.map((project) => (
+        {filteredState.map((project) => (
           <Project
-            projects={projects}
-            setProjects={setProjects}
+            project={project}
+            key={project.id}
             name={project.name}
             type={project.type}
-            key={project.id}
             description={project.description}
-            project={project}
-            updateCount={updateCount}
+            completed={project.completed}
+            counter={project.counter}
+            id={project.id}
           />
         ))}
       </ul>

@@ -1,52 +1,46 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch } from "react-redux";
+import {
+  addProject,
+  filteredProjects,
+  filteredStatus,
+} from "../Features/craftSlice";
+import { useState } from "react";
 
-const Input = ({
-  setInputText,
-  inputText,
-  setDescriptionText,
-  descriptionText,
-  setProjectType,
-  projectType,
-  setProjects,
-  projects,
-  setStatus,
-}) => {
+const Input = () => {
+  const dispatch = useDispatch();
+  const [inputText, setInputText] = useState("");
+  const [descriptionText, setDescriptionText] = useState("");
+  const [projectType, setProjectType] = useState("select type");
+  // const [status, setStatus] = useState("all");
+
   const inputTextHandler = (e) => {
-    // console.log(e.target.value);
     setInputText(e.target.value);
   };
 
   const inputDescriptionHandler = (e) => {
-    // console.log(e.target.value);
     setDescriptionText(e.target.value);
   };
 
   const typeHandler = (e) => {
-    // console.log(e.target.value);
     setProjectType(e.target.value);
   };
 
-  const submitHandler = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    setProjects([
-      ...projects,
-      {
-        id: Math.random() * 1000,
+    dispatch(
+      addProject({
         name: inputText,
         type: projectType,
         description: descriptionText,
-        completed: false,
-        count: 0,
-      },
-    ]);
-    setInputText("");
-    setProjectType("");
-    setDescriptionText("");
+      })
+    );
   };
-  const statusHandler = (e) => {
-    setStatus(e.target.value);
-  };
+
+  // const statusHandler = (e) => {
+  //   setStatus(e.target.value);
+  // };
 
   return (
     <div className="input-area">
@@ -81,7 +75,7 @@ const Input = ({
           value={descriptionText}
           required
         />
-        <button className="add-button" type="submit" onClick={submitHandler}>
+        <button className="add-button" type="submit" onClick={onSubmit}>
           <i>
             <FontAwesomeIcon icon={faCirclePlus} />
           </i>
@@ -89,7 +83,14 @@ const Input = ({
 
         <div className="filter">
           <p>Filter:</p>
-          <select name="todos" className="filter-todo" onChange={statusHandler}>
+          <select
+            name="todos"
+            className="filter-todo"
+            /////// dispatch to store the value of the select option selected ///////
+            onChange={(e) => {
+              dispatch(filteredStatus(e.target.value));
+            }}
+          >
             <option value="all">All</option>
             <option value="completed">Completed</option>
             <option value="uncompleted">Uncompleted</option>
