@@ -53,7 +53,6 @@ const Project = ({ id, name, type, description, completed, counter }) => {
             <i>
               <FontAwesomeIcon icon={faCheck} />
             </i>
-            <p className="btn-action">complete</p>
           </button>
           <button
             className="delete-btn"
@@ -64,7 +63,6 @@ const Project = ({ id, name, type, description, completed, counter }) => {
             <i>
               <FontAwesomeIcon icon={faTrashCan} />
             </i>
-            <p className="btn-action">delete</p>
           </button>
         </div>
       </div>

@@ -60,7 +60,10 @@ h1 {
 }
 
 .input-area {
-  background-color: #89726d;
+  background-color: #7b6079;
+  box-shadow: 0 0 0 0.4rem #7b6079, 0.2rem 0.2rem 0.4rem 0.2rem rgba(0, 0, 0, 0.5333333333);
+  border-radius: 1.5rem;
+  border: 2px dashed #ffe9d6;
   width: 34rem;
   margin: 1rem auto;
   border-radius: 1.6rem;
@@ -121,7 +124,7 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 20rem;
+  height: 25rem;
   position: relative;
   box-shadow: -2px 0px 47px 4px rgba(0, 0, 0, 0.18);
   border-top-left-radius: 2rem;
@@ -131,7 +134,7 @@ li {
 .img-container {
   position: relative;
   width: 100%;
-  height: 60%;
+  height: 12rem;
 }
 .img-container img {
   width: 100%;
@@ -152,7 +155,6 @@ li {
   width: 100%;
   border-radius: 8rem;
   background-color: rgba(255, 255, 255, 0);
-  height: 5rem;
 }
 .project-text img {
   width: 115%;
@@ -195,51 +197,49 @@ li {
 }
 
 .button-group {
+  width: 100%;
+  height: 5rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  position: relative;
+  align-items: center;
 }
 .button-group i svg {
   color: #fff;
 }
 .button-group .complete-btn {
-  background-color: #5a9027;
+  box-shadow: 0 0 0 0.4rem #a7d0cd, 0.2rem 0.2rem 0.4rem 0.2rem rgba(0, 0, 0, 0.5333333333);
+  border-radius: 1.5rem;
+  border: 2px dashed #ffe9d6;
+  background-color: #a7d0cd;
 }
 .button-group .delete-btn {
-  background-color: #9a241a;
+  box-shadow: 0 0 0 0.4rem #de8971, 0.2rem 0.2rem 0.4rem 0.2rem rgba(0, 0, 0, 0.5333333333);
+  border-radius: 1.5rem;
+  border: 2px dashed #ffe9d6;
+  background-color: #de8971;
 }
 .button-group button {
-  width: 25%;
+  width: 5rem;
   height: 3rem;
 }
-
-.btn-action {
-  visibility: hidden;
-  font-size: 1.7rem;
-}
-
-.complete-btn:hover .btn-action {
-  visibility: visible;
-  transform: translateX(100%);
-  transition: ease 1s;
-}
-
-.delete-btn:hover .btn-action {
-  visibility: visible;
-  transform: translateX(-100%);
-  transition: ease 1s;
+.button-group button:active {
+  transform: translateX(0.1em) translateY(0.1em);
+  box-shadow: 0 0 0 4px #fff, 1.5px 1.5px 2.5px 1.5px rgba(0, 0, 0, 0.5);
 }
 
 .complete-btn:hover,
 .delete-btn:hover {
   background-color: white;
+  box-shadow: 0 0 0 2px #fff, 2px 2px 4px 2px rgba(0, 0, 0, 0.5333333333);
 }
 
 .complete-btn:hover i svg {
-  color: #5a9027;
+  color: #a7d0cd;
 }
 
 .delete-btn:hover i svg {
-  color: #9a241a;
+  color: #de8971;
 }
 
 .modal-open {
