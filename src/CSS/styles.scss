@@ -146,6 +146,7 @@ input:focus {
     margin-top: 2.5rem;
   }
 }
+
 .project-name-entry,
 .select-project-type,
 .project-description,
@@ -154,8 +155,9 @@ input:focus {
 }
 .filter {
   display: flex;
-  width: 80%;
+  width: 100%;
   justify-content: center;
+  margin: 1rem 0;
   p {
     margin-right: 0.5rem;
   }

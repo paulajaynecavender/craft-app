@@ -156,8 +156,9 @@ input:focus {
 
 .filter {
   display: flex;
-  width: 80%;
+  width: 100%;
   justify-content: center;
+  margin: 1rem 0;
 }
 .filter p {
   margin-right: 0.5rem;

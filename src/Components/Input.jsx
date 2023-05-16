@@ -22,8 +22,8 @@ const Input = () => {
     setProjectType(e.target.value);
   };
 
-  const onSubmit = (e) => {
-    e.preventDefault();
+  const onSubmit = () => {
+    // e.preventDefault();
     dispatch(
       addProject({
         name: inputText,
@@ -38,12 +38,11 @@ const Input = () => {
 
   return (
     <div className="input-area">
-      <form className="input-area-form">
+      <form className="input-area-form" onSubmit={onSubmit}>
         <div className="input-container">
           <input
             type="text"
             className="project-name-entry"
-            // placeholder="name your project"
             name="text"
             onChange={inputTextHandler}
             value={inputText}
@@ -55,7 +54,6 @@ const Input = () => {
           <input
             type="text"
             className="project-description"
-            // placeholder="description"
             name="text"
             onChange={inputDescriptionHandler}
             value={descriptionText}
@@ -66,10 +64,10 @@ const Input = () => {
         <div className="select">
           <select
             name="types"
-            required
             className="select-project-type"
             onChange={typeHandler}
             value={projectType}
+            required
           >
             <option value="">select project type</option>
             <option value="knitting">knitting</option>
@@ -77,29 +75,28 @@ const Input = () => {
           </select>
         </div>
         <div>
-          <button className="add-button" type="submit" onClick={onSubmit}>
+          <button className="add-button" type="submit">
             <i>
               <FontAwesomeIcon icon={faCirclePlus} />
             </i>
           </button>
         </div>
-
-        <div className="filter">
-          <select
-            name="todos"
-            className="filter-todo"
-            /////// dispatch to store the value of the select option selected ///////
-            onChange={(e) => {
-              dispatch(filteredStatus(e.target.value));
-            }}
-          >
-            <option value="">Filter</option>
-            <option value="all">All</option>
-            <option value="completed">Completed</option>
-            <option value="uncompleted">Uncompleted</option>
-          </select>
-        </div>
       </form>
+      <div className="filter">
+        <select
+          name="todos"
+          className="filter-todo"
+          /////// dispatch to store the value of the select option selected ///////
+          onChange={(e) => {
+            dispatch(filteredStatus(e.target.value));
+          }}
+        >
+          <option value="">Filter</option>
+          <option value="all">All</option>
+          <option value="completed">Completed</option>
+          <option value="uncompleted">Uncompleted</option>
+        </select>
+      </div>
     </div>
   );
 };
