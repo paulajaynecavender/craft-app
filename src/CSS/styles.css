@@ -185,11 +185,12 @@ li {
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .project {
   width: 15rem;
+  margin: 1rem;
 }
 
 .project-item {
@@ -258,6 +259,7 @@ li {
   top: 50%;
   left: 50%;
   visibility: hidden;
+  color: #000;
 }
 
 .expand:hover {

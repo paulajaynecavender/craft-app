@@ -8,8 +8,7 @@ const Input = () => {
   const dispatch = useDispatch();
   const [inputText, setInputText] = useState("");
   const [descriptionText, setDescriptionText] = useState("");
-  const [projectType, setProjectType] = useState("select type");
-  // const [status, setStatus] = useState("all");
+  const [projectType, setProjectType] = useState("");
 
   const inputTextHandler = (e) => {
     setInputText(e.target.value);
@@ -32,11 +31,10 @@ const Input = () => {
         description: descriptionText,
       })
     );
+    setInputText("");
+    setDescriptionText("");
+    setProjectType("");
   };
-
-  // const statusHandler = (e) => {
-  //   setStatus(e.target.value);
-  // };
 
   return (
     <div className="input-area">
@@ -71,6 +69,7 @@ const Input = () => {
             required
             className="select-project-type"
             onChange={typeHandler}
+            value={projectType}
           >
             <option value="">select project type</option>
             <option value="knitting">knitting</option>
