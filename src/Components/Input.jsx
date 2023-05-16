@@ -41,15 +41,30 @@ const Input = () => {
   return (
     <div className="input-area">
       <form className="input-area-form">
-        <input
-          type="text"
-          className="project-name-entry"
-          placeholder="name your project"
-          name="text"
-          onChange={inputTextHandler}
-          value={inputText}
-          required
-        />
+        <div className="input-container">
+          <input
+            type="text"
+            className="project-name-entry"
+            // placeholder="name your project"
+            name="text"
+            onChange={inputTextHandler}
+            value={inputText}
+            required
+          />
+          <label className="label">Project Name</label>
+        </div>
+        <div className="input-container">
+          <input
+            type="text"
+            className="project-description"
+            // placeholder="description"
+            name="text"
+            onChange={inputDescriptionHandler}
+            value={descriptionText}
+            required
+          />
+          <label className="label">Description</label>
+        </div>
         <div className="select">
           <select
             name="types"
@@ -57,28 +72,20 @@ const Input = () => {
             className="select-project-type"
             onChange={typeHandler}
           >
-            <option value="">select</option>
+            <option value="">select project type</option>
             <option value="knitting">knitting</option>
             <option value="crochet">crochet</option>
           </select>
         </div>
-        <input
-          type="text"
-          className="project-description"
-          placeholder="description"
-          name="text"
-          onChange={inputDescriptionHandler}
-          value={descriptionText}
-          required
-        />
-        <button className="add-button" type="submit" onClick={onSubmit}>
-          <i>
-            <FontAwesomeIcon icon={faCirclePlus} />
-          </i>
-        </button>
+        <div>
+          <button className="add-button" type="submit" onClick={onSubmit}>
+            <i>
+              <FontAwesomeIcon icon={faCirclePlus} />
+            </i>
+          </button>
+        </div>
 
         <div className="filter">
-          <p>Filter:</p>
           <select
             name="todos"
             className="filter-todo"
@@ -87,6 +94,7 @@ const Input = () => {
               dispatch(filteredStatus(e.target.value));
             }}
           >
+            <option value="">Filter</option>
             <option value="all">All</option>
             <option value="completed">Completed</option>
             <option value="uncompleted">Uncompleted</option>

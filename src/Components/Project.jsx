@@ -39,7 +39,6 @@ const Project = ({ id, name, type, description, completed, counter }) => {
         />
         <div className="project-text">
           {/* <img src="./assets/blob.svg" alt="blob" /> */}
-
           <p className="name-text">{name}</p>
         </div>
 
