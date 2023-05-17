@@ -8,21 +8,26 @@ const Modal = ({ id, name, description, type, setModal, modal, counter }) => {
   };
 
   return (
-    <div className={modal ? "modal-open" : "modal-hidden"}>
-      <button className="exit-modal" onClick={closeModal}>
-        <i>
-          <FontAwesomeIcon icon={faXmark} />
-        </i>
-      </button>
+    <>
+      <div
+        className={modal ? "modal-container-open" : "modal-container-hidden"}
+      ></div>
+      <div className={modal ? "modal-open" : "modal-hidden"}>
+        <button className="exit-modal" onClick={closeModal}>
+          <i>
+            <FontAwesomeIcon icon={faXmark} />
+          </i>
+        </button>
 
-      <Counter
-        id={id}
-        counter={counter}
-        name={name}
-        description={description}
-        type={type}
-      />
-    </div>
+        <Counter
+          id={id}
+          counter={counter}
+          name={name}
+          description={description}
+          type={type}
+        />
+      </div>
+    </>
   );
 };
 

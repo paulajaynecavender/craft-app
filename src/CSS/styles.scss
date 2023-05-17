@@ -310,6 +310,18 @@ li {
 }
 
 /////// modal ////////
+.modal-container-open {
+  height: 100vh;
+  width: 100vw;
+  display: block;
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  background-color: #ffffff4f;
+  backdrop-filter: blur(0.4rem);
+}
+
 .modal-open {
   display: block;
   position: fixed;
@@ -368,4 +380,12 @@ li {
 .count {
   text-align: center;
   padding-top: 0.5rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .project-list-container {
+    max-width: 100rem;
+    display: flex;
+    margin: 0 auto;
+  }
 }
