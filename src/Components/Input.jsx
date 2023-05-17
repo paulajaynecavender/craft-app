@@ -23,7 +23,6 @@ const Input = () => {
   };
 
   const onSubmit = () => {
-    // e.preventDefault();
     dispatch(
       addProject({
         name: inputText,
@@ -70,8 +69,8 @@ const Input = () => {
             required
           >
             <option value="">select project type</option>
-            <option value="knitting">knitting</option>
-            <option value="crochet">crochet</option>
+            <option value="knitting">Knitting</option>
+            <option value="crochet">Crochet</option>
           </select>
         </div>
         <div>

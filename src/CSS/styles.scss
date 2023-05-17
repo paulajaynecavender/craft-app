@@ -35,10 +35,10 @@ button {
   border-top-left-radius: 2rem;
   border-top-right-radius: 2rem;
 }
-@mixin btn-border($color) {
-  box-shadow: 0 0 0 0.4rem ($color), 0.2rem 0.2rem 0.4rem 0.2rem #00000088;
+@mixin btn-border($color1, $color2) {
+  box-shadow: 0 0 0 0.4rem ($color1), 0.2rem 0.2rem 0.4rem 0.2rem #00000088;
   border-radius: 1.5rem;
-  border: 0.2rem dashed $accent;
+  border: 0.2rem dashed ($color2);
 }
 
 button {
@@ -80,7 +80,7 @@ h1 {
 }
 .input-area {
   background-color: $complementary;
-  @include btn-border($complementary);
+  @include btn-border($complementary, $accent);
   width: 34rem;
   margin: 1rem auto;
   border-radius: 1.6rem;
@@ -163,7 +163,7 @@ input:focus {
   }
 }
 .add-button {
-  @include btn-border($complete);
+  @include btn-border($complete, $accent);
   background-color: $complete;
 }
 .add-button:hover {
@@ -229,7 +229,6 @@ li {
 .project-text {
   text-align: left;
   width: 100%;
-  border-radius: 8rem;
   background-color: #ffffff00;
   img {
     width: 115%;
@@ -245,6 +244,7 @@ li {
 .completed .project-text {
   text-decoration: line-through;
   opacity: 0.5;
+  background-color: $complete;
 }
 
 // expand into modal button
@@ -280,11 +280,11 @@ li {
   position: relative;
   align-items: center;
   .complete-btn {
-    @include btn-border($complete);
+    @include btn-border($complete, $accent);
     background-color: $complete;
   }
   .delete-btn {
-    @include btn-border($delete);
+    @include btn-border($delete, $accent);
     background-color: $delete;
   }
   button {
@@ -316,17 +316,15 @@ li {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 40vh;
-  width: 80vw;
+  height: max-content;
+  min-width: 25rem;
+  max-width: max-content;
   font-size: 2rem;
-  background: #bea6a1;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(4rem);
-  -webkit-backdrop-filter: blur(5px);
-  padding: 2rem;
+  padding: 2.5rem;
   transition: 0.5s;
   z-index: 100;
+  background-color: $accent;
+  @include btn-border($accent, $complementary);
 }
 .modal-hidden {
   display: none;
@@ -337,7 +335,37 @@ li {
   top: 0;
   padding: 1rem;
   background-color: transparent;
+  i {
+    color: #000;
+  }
 }
-.open-modal {
-  background-color: #d37b31;
+.btn-counter-container {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+  button {
+    margin: 0.6rem;
+    width: 7rem;
+    height: 4rem;
+  }
+  .btn-plus {
+    @include btn-border($complete, $accent);
+    background-color: $complete;
+  }
+  .btn-sub {
+    @include btn-border($delete, $accent);
+    background-color: $delete;
+  }
+  .btn-reset {
+    @include btn-border($complementary, $accent);
+    background-color: $complementary;
+  }
+}
+.description-text p {
+  margin-top: 1rem;
+  text-align: center;
+}
+.count {
+  text-align: center;
+  padding-top: 0.5rem;
 }

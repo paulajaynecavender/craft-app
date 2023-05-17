@@ -14,12 +14,14 @@ const Modal = ({ id, name, description, type, setModal, modal, counter }) => {
           <FontAwesomeIcon icon={faXmark} />
         </i>
       </button>
-      <div className="description-text">
-        <p>Name: {name}</p>
-        <p>Type: {type}</p>
-        <p>Description: {description}</p>
-      </div>
-      <Counter id={id} counter={counter} />
+
+      <Counter
+        id={id}
+        counter={counter}
+        name={name}
+        description={description}
+        type={type}
+      />
     </div>
   );
 };
