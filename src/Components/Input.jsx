@@ -46,6 +46,7 @@ const Input = () => {
             onChange={inputTextHandler}
             value={inputText}
             required
+            maxlength="45"
           />
           <label className="label">Project Name</label>
         </div>
@@ -82,6 +83,7 @@ const Input = () => {
         </div>
       </form>
       <div className="filter">
+        <p>Filter:</p>
         <select
           name="todos"
           className="filter-todo"
@@ -90,7 +92,6 @@ const Input = () => {
             dispatch(filteredStatus(e.target.value));
           }}
         >
-          <option value="">Filter</option>
           <option value="all">All</option>
           <option value="completed">Completed</option>
           <option value="uncompleted">Uncompleted</option>

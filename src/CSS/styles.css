@@ -75,6 +75,7 @@ h1 {
   margin: 1rem auto;
   border-radius: 1.6rem;
   color: #fff;
+  padding: 1rem;
 }
 .input-area input,
 .input-area select {
@@ -140,7 +141,6 @@ input:focus {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
 }
 .input-area-form div {
   margin-top: 2.5rem;
@@ -148,8 +148,7 @@ input:focus {
 
 .project-name-entry,
 .select-project-type,
-.project-description,
-.filter {
+.project-description {
   height: 3rem;
   padding: 0.5rem;
 }
@@ -158,10 +157,12 @@ input:focus {
   display: flex;
   width: 100%;
   justify-content: center;
-  margin: 1rem 0;
+  margin: 2rem 0 1rem;
+  align-items: center;
+  color: #ffe9d6;
 }
 .filter p {
-  margin-right: 0.5rem;
+  margin-right: 0.8rem;
 }
 
 .add-button {
